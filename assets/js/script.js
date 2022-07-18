@@ -17,10 +17,12 @@ function tick() {
     //get the mins of the current time
     var mins = new Date().getMinutes();
     if (mins == "00") {
-        location.reload(); //decided to do page reload since calling timeSlide() didn't work
+        //calls page reload instead of timeSlide()
+        location.reload();
     }
 }
-setInterval(tick,30000);
+//calls tick() every 30 seconds
+setInterval(tick,30000); 
 
 //creates reference array for time based on calendar row time headers
 function helper() {
@@ -44,7 +46,7 @@ function timeSlide() {
     }
 }
 
-//saves text input
+//saves text input to localStorage and sets to DOM
 function saveText(event) {
     var calendarObj = {date:"", item:[]};
     var itemObj = {time:"" , text:""};
@@ -72,6 +74,7 @@ function saveText(event) {
     }
     localStorage.setItem("calendar-items", JSON.stringify(calendarItems));
 
+    //restores element to DOM with new text
     $(this).prev().children()[1].remove();
     $(this).prev().children()[0].remove();
     $(this).prev()[0].textContent = newText;
@@ -139,5 +142,4 @@ function init() {
 $(saveEl).on('click', saveText);
 timeSlide();
 helper();
-// callEveryHour();
 init();
