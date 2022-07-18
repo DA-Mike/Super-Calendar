@@ -7,7 +7,7 @@ var calendarItems = [];
 var timeEl = document.getElementsByClassName('hour');
 var stripped = [];
 
-//get today
+//passes today's date to DOM
 $("#currentDay").text(today);
 
 //creates reference array for time based on calendar row time headers
