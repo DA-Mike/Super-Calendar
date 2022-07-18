@@ -4,7 +4,6 @@ var textAreaEl = document.getElementsByClassName("text-area");
 var now = moment().format("HH");
 var saveEl = document.getElementsByClassName("saveBtn");
 var calendarItems = [];
-// var timeEl = document.querySelectorAll('tr');
 var timeEl = document.getElementsByClassName('hour');
 var stripped = [];
 
@@ -14,7 +13,6 @@ $("#currentDay").text(today);
 //creates reference array for time based on calendar row time headers
 function helper() {
     for (n = 0; n < timeEl.length; n++){
-        // stripped.push(timeEl[n].children[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim());
         stripped.push(timeEl[n].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim());
     }
     return stripped;
@@ -22,18 +20,13 @@ function helper() {
 
 //styles time rows based on time of day (past/present/future)
 function timeSlide() {
-    // var timeEl = document.querySelectorAll('tr');
     for (i = 0; i < timeEl.length; i++){
-        // var convertTime = moment(timeEl[i].children[0].textContent, 'ha').format('HH');
         var convertTime = moment(timeEl[i].textContent, 'ha').format('HH');
         if (convertTime < now) {
-            // $(timeEl[i].children[1]).addClass("past");
             $(timeEl[i]).next().addClass("past");
         } else if (convertTime > now) {
-            // $(timeEl[i].children[1]).addClass("future");
             $(timeEl[i]).next().addClass("future");
         } else {
-            // $(timeEl[i].children[1]).addClass("present");
             $(timeEl).next().addClass("present");
         }
     }
@@ -44,14 +37,8 @@ function saveText(event) {
     var calendarObj = {date:"", item:[]};
     var itemObj = {time:"" , text:""};
     var todayDate = moment().format('DD-MM-YYYY');
-    // var timeDay = $(this).parent().children()[0].textContent;
     var timeDay = $(this).prev().prev()[0].textContent;
-    console.log("this :", $(this));
-    console.log("timeday: ", timeDay);
-    // var newText = $(this).parent().children()[1].children[1].value;
     var newText = $(this).prev().children()[1].value;
-    console.log("previous: ", $(this).prev());
-    console.log("newText: ", newText);
 
     itemObj.time = timeDay;
     itemObj.text = newText;
@@ -76,10 +63,10 @@ function saveText(event) {
         }
     }
     localStorage.setItem("calendar-items", JSON.stringify(calendarItems));
-    
-    $(this).parent().children()[1].children[1].remove();
-    $(this).parent().children()[1].children[0].remove();
-    $(this).parent().children()[1].textContent = newText;
+
+    $(this).prev().children()[1].remove();
+    $(this).prev().children()[0].remove();
+    $(this).prev()[0].textContent = newText;
 }
 
 //listener for text input elements of calendar
@@ -109,7 +96,6 @@ $(document).on('click', '.text-area', function() {
 
 //initializes data on page load/reload
 function init() {
-    // helper();
     var calendarObj = {date:"", item:[]};
     var localCheck = JSON.parse(localStorage.getItem("calendar-items"));
     var todayDate = moment().format('DD-MM-YYYY');
@@ -134,7 +120,6 @@ function init() {
         for (i = 0; i < calendarItems.item.length; i++){
             for (n = 0; n < stripped.length; n++){
                 if (calendarItems.item[i].time === stripped[n]){
-                    // $(timeEl[n]).children()[1].append(calendarItems.item[i].text + " ");
                     $(timeEl[n]).next().append(calendarItems.item[i].text + " ");
                 }
             }

@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea {
+/* .textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -12,7 +12,7 @@ textarea {
   border-left: 1px solid black;
   padding: 10px;
   margin-bottom: 0;
-}
+} */
 
 .jumbotron {
   text-align: center;
@@ -33,56 +33,19 @@ textarea {
   border-radius: 15px;
 }
 
-/* .table {
-  display: grid;
-  grid-template-columns: 10% 80% 10%;
-  grid-gap: 3px;
-} */
-
 .row {
-  /* display: grid; */
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
   margin-right: 0;
   padding-bottom: 1px;
   margin-bottom: 50px;
-  /* grid-template-columns: 10% 80% 10%; */
 }
-
-.table {
-  border: 2px white;
-}
-
-.table th {
-  padding: .75rem;
-  vertical-align: middle;
-  margin-right: 0;
-  border-top: 2px dotted black;
-  /* border-bottom: 3px dotted black; */
-  /* border-right: 3px solid black; */
-  border-radius: 3px;
-  /* border-top: 1px solid #dee2e6; */
-}
-
-.table td {
-  vertical-align: middle;
-  border: none;
-  border-bottom: 1px solid white;
-  border-left: 2px ridge black;
-}
-
-/* .row {
-  display: table-cell;
-  margin-bottom: 1px;
-} */
-
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 2px dashed #000000;
-  /* width: 10%; */
   text-align: center;
   vertical-align: middle;
   padding-top: 2.5%;
@@ -124,7 +87,6 @@ textarea {
 }
 
 .saveBtn {
-  /* display: table-cell; */
   border-left: 3px ridge black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -133,9 +95,6 @@ textarea {
   background-color: #06aed5;
   color: white;
   text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-  width: 10%;
   padding-top: 2.5%;
   margin-bottom: 2px;
 }
