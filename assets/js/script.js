@@ -18,10 +18,8 @@ function tick() {
     var mins = new Date().getMinutes();
     if (mins == "00") {
         location.reload(); //decided to do page reload since calling timeSlide() didn't work
-    //   timeSlide();
-      console.log("reload() called by tick()");
     }
-  }
+}
 setInterval(tick,30000);
 
 //creates reference array for time based on calendar row time headers
