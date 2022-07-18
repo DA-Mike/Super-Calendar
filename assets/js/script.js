@@ -9,7 +9,7 @@ var stripped = [];
 
 //passes today's date and time to DOM
 window.setInterval(function () {
-    $('#currentDay').html(moment().format("[Today is ] dddd, MMMM Do YYYY, h:mm")) //html(moment().format('ddd MM/DD/y H:mm:ss'))
+    $('#currentDay').html(moment().format("[Today is ] dddd, MMMM Do YYYY, h:mm"))
 }, 1000);
 
 //reloads page every hour (couldn't get timeSlide() to work with this without a page reload)
@@ -17,7 +17,7 @@ function tick() {
     //get the mins of the current time
     var mins = new Date().getMinutes();
     if (mins == "00") {
-        location.reload();
+        location.reload(); //decided to do page reload since calling timeSlide() didn't work
     //   timeSlide();
       console.log("reload() called by tick()");
     }
