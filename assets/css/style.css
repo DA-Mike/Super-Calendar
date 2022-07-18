@@ -11,6 +11,7 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  margin-bottom: 0;
 }
 
 .jumbotron {
@@ -45,6 +46,7 @@ textarea {
   border-top: 1px solid white;
   margin-right: 0;
   padding-bottom: 1px;
+  margin-bottom: 50px;
   /* grid-template-columns: 10% 80% 10%; */
 }
 
@@ -70,18 +72,22 @@ textarea {
   border-left: 2px ridge black;
 }
 
-.row {
+/* .row {
   display: table-cell;
   margin-bottom: 1px;
-}
+} */
 
 
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-top: 2px dashed #000000;
   /* width: 10%; */
   text-align: center;
+  vertical-align: middle;
+  padding-top: 2.5%;
+  margin-bottom: 2px;
+  font-weight: bolder;
 }
 
 .past {
@@ -103,7 +109,9 @@ textarea {
   width: 90%;
   height: 100%;
   vertical-align: top;
-  /* border-left: 3px solid black; */
+  border-left: 3px solid black;
+  margin-bottom: 2px;
+  padding: 5px;
 }
 
 .form-box {
@@ -116,16 +124,20 @@ textarea {
 }
 
 .saveBtn {
-  display: table-cell;
-  border-left: 1px solid black;
+  /* display: table-cell; */
+  border-left: 3px ridge black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   background-color: #06aed5;
   color: white;
   text-align: center;
   justify-content: center;
   vertical-align: middle;
   width: 10%;
+  padding-top: 2.5%;
+  margin-bottom: 2px;
 }
 
 .saveBtn:hover {
