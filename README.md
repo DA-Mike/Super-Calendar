@@ -12,7 +12,7 @@ https://da-mike.github.io/Super-Calendar/
 
 ## Mockup
 
-(./Assets/05-third-party-apis-homework-demo.gif)
+./assets/05-third-party-apis-homework-demo.gif
 
 ## License
 
