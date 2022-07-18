@@ -8,6 +8,8 @@ The assignment was to create a responsive daily calendar where the user can inpu
 
 ## Live Site
 
+https://da-mike.github.io/Super-Calendar/
+
 ## Mockup
 
 (./Assets/05-third-party-apis-homework-demo.gif)
