@@ -7,8 +7,22 @@ var calendarItems = [];
 var timeEl = document.getElementsByClassName('hour');
 var stripped = [];
 
-//passes today's date to DOM
-$("#currentDay").text(today);
+//passes today's date and time to DOM
+window.setInterval(function () {
+    $('#currentDay').html(moment().format("[Today is ] dddd, MMMM Do YYYY, h:mm")) //html(moment().format('ddd MM/DD/y H:mm:ss'))
+}, 1000);
+
+//reloads page every hour (couldn't get timeSlide() to work with this without a page reload)
+function tick() {
+    //get the mins of the current time
+    var mins = new Date().getMinutes();
+    if (mins == "00") {
+        location.reload();
+    //   timeSlide();
+      console.log("reload() called by tick()");
+    }
+  }
+setInterval(tick,30000);
 
 //creates reference array for time based on calendar row time headers
 function helper() {
@@ -27,7 +41,7 @@ function timeSlide() {
         } else if (convertTime > now) {
             $(timeEl[i]).next().addClass("future");
         } else {
-            $(timeEl).next().addClass("present");
+            $(timeEl[i]).next().addClass("present");
         }
     }
 }
@@ -127,4 +141,5 @@ function init() {
 $(saveEl).on('click', saveText);
 timeSlide();
 helper();
+// callEveryHour();
 init();
