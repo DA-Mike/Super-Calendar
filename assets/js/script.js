@@ -44,12 +44,8 @@ function saveText(event) {
     itemObj.text = newText;
 
     var localCheck = JSON.parse(localStorage.getItem("calendar-items"));
-    //checks if there's local data
-    if (localCheck == null){
-        calendarObj.date = todayDate;
-        calendarObj.item.push(itemObj);
-        calendarItems.push(calendarObj);
-    } else if (localCheck.length > 0) {
+    
+    if (localCheck.length > 0) {
         calendarItems = JSON.parse(localStorage.getItem("calendar-items"));
         for (i = 0; i < localCheck.length; i++){
             //checks if calendarItems already has an object for that date
