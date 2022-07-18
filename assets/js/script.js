@@ -18,6 +18,7 @@ function helper() {
     return stripped;
 }
 
+//styles time rows based on time of day (past/present/future)
 function timeSlide() {
     var timeEl = document.querySelectorAll('tr');
     for (i = 0; i < timeEl.length; i++){
