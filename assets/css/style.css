@@ -19,6 +19,8 @@ textarea {
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  padding: 0;
+  margin-bottom: 1%;
 }
 
 .description {
@@ -42,8 +44,37 @@ textarea {
   height: 80px;
   border-top: 1px solid white;
   margin-right: 0;
+  padding-bottom: 1px;
   /* grid-template-columns: 10% 80% 10%; */
 }
+
+.table {
+  border: 2px white;
+}
+
+.table th {
+  padding: .75rem;
+  vertical-align: middle;
+  margin-right: 0;
+  border-top: 2px dotted black;
+  /* border-bottom: 3px dotted black; */
+  /* border-right: 3px solid black; */
+  border-radius: 3px;
+  /* border-top: 1px solid #dee2e6; */
+}
+
+.table td {
+  vertical-align: middle;
+  border: none;
+  border-bottom: 1px solid white;
+  border-left: 2px ridge black;
+}
+
+.row {
+  display: table-cell;
+  margin-bottom: 1px;
+}
+
 
 .hour {
   background-color: #ffffff;
@@ -69,8 +100,10 @@ textarea {
 }
 
 .text-area {
-  width: 100%;
+  width: 90%;
   height: 100%;
+  vertical-align: top;
+  /* border-left: 3px solid black; */
 }
 
 .form-box {
@@ -83,12 +116,16 @@ textarea {
 }
 
 .saveBtn {
+  display: table-cell;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-  /* width: 10%; */
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 10%;
 }
 
 .saveBtn:hover {
