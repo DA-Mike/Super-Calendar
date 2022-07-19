@@ -52,32 +52,37 @@ function saveText(event) {
     var itemObj = {time:"" , text:""};
     var todayDate = moment().format('DD-MM-YYYY');
     var timeDay = $(this).prev().prev()[0].textContent;
-    var newText = $(this).prev().children()[1].value;
-
-    itemObj.time = timeDay;
-    itemObj.text = newText;
-
-    var localCheck = JSON.parse(localStorage.getItem("calendar-items"));
+    try {
+        var newText = $(this).prev().children()[1].value;
     
-    if (localCheck.length > 0) {
-        calendarItems = JSON.parse(localStorage.getItem("calendar-items"));
-        for (i = 0; i < localCheck.length; i++){
-            //checks if calendarItems already has an object for that date
-            if (calendarItems[i].date === todayDate){
-                for (x = 0; x < calendarItems[i].item.length; x++){
-                    if (calendarItems[i].item[x].time === itemObj.time) {
-                        calendarItems[i].item[x].text = itemObj.text;
-                    } 
+        itemObj.time = timeDay;
+        itemObj.text = newText;
+
+        var localCheck = JSON.parse(localStorage.getItem("calendar-items"));
+        
+        if (localCheck.length > 0) {
+            calendarItems = JSON.parse(localStorage.getItem("calendar-items"));
+            for (i = 0; i < localCheck.length; i++){
+                //checks if calendarItems already has an object for that date
+                if (calendarItems[i].date === todayDate){
+                    for (x = 0; x < calendarItems[i].item.length; x++){
+                        if (calendarItems[i].item[x].time === itemObj.time) {
+                            calendarItems[i].item[x].text = itemObj.text;
+                        } 
+                    }
                 }
             }
         }
-    }
-    localStorage.setItem("calendar-items", JSON.stringify(calendarItems));
+        localStorage.setItem("calendar-items", JSON.stringify(calendarItems));
 
-    //restores element to DOM with new text
-    $(this).prev().children()[1].remove();
-    $(this).prev().children()[0].remove();
-    $(this).prev()[0].textContent = newText;
+        //restores element to DOM with new text
+        $(this).prev().children()[1].remove();
+        $(this).prev().children()[0].remove();
+        $(this).prev()[0].textContent = newText;
+    } catch(err) {
+        window.alert("No input detected");
+    }
+
 }
 
 //listener for text input elements of calendar
