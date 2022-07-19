@@ -110,6 +110,7 @@ function init() {
     var calendarObj = {date:"", item:[]};
     var localCheck = JSON.parse(localStorage.getItem("calendar-items"));
     var todayDate = moment().format('DD-MM-YYYY');
+    var dCounter = 0;
     //if no calendar object, create one for today
     if (localCheck === null){
         for (z = 0; z < stripped.length; z++){
@@ -125,15 +126,28 @@ function init() {
         for (i = 0; i < localCheck.length; i++){
             if (localCheck[i].date === todayDate){
                 calendarItems = localCheck[i];
+                dCounter++;
             }
         }
+        if (dCounter === 1){ //One day object found
         //finds and appends stored data for relevant date and time
-        for (i = 0; i < calendarItems.item.length; i++){
-            for (n = 0; n < stripped.length; n++){
-                if (calendarItems.item[i].time === stripped[n]){
-                    $(timeEl[n]).next().append(calendarItems.item[i].text + " ");
+            for (i = 0; i < calendarItems.item.length; i++){
+                for (n = 0; n < stripped.length; n++){
+                    if (calendarItems.item[i].time === stripped[n]){
+                        $(timeEl[n]).next().append(calendarItems.item[i].text + " ");
+                    }
                 }
             }
+        } else if (dCounter === 0) { //no day object found, updates local with new empty day object
+            for (z = 0; z < stripped.length; z++){
+                var itemObj = {time:"" , text:""};
+                itemObj.time = stripped[z];
+                calendarObj.item.push(itemObj);
+                calendarObj.date = todayDate;
+            }
+            calendarItems = localCheck;
+            calendarItems.push(calendarObj)
+            localStorage.setItem("calendar-items", JSON.stringify(calendarItems));
         }
     }
 }
