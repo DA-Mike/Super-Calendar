@@ -82,7 +82,6 @@ function saveText(event) {
     } catch(err) {
         window.alert("No input detected");
     }
-
 }
 
 //listener for text input elements of calendar
