@@ -103,6 +103,7 @@ $(document).on('click', '.text-area', function() {
     });
     $textInput.css("background-color", "transparent");
     $textInput.css("border", "none");
+    $textInput.css("max-width", "100%");
 
     // Build up the form:
     $form.append($textInput);
